@@ -1,5 +1,10 @@
 <template>
-    <h1>Hello World</h1>
+    <UiNavbar/>
+    <UiContainer>
+        <h1>Home</h1>
+    </UiContainer>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+
+</script>
