@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-200 p-6 flex flex-col py-12 items-center justify-center">
+    <div class="bg-gray-200 p-6 flex flex-col py-14 items-center overflow-auto">
         <slot/>
     </div>
 </template>
