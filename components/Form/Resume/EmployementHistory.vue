@@ -3,16 +3,17 @@
         <p>Show your relevant experience (last 10 years). Use bullet points to note your achievements, if possible - use numbers/facts (Achieved X, measured by Y, by doing Z).</p>
         <template v-for="(item, index) in resumeStore.currentResume.employement_history">
             <UCard>
-                <div class="flex flex-row gap-3 justify-between items-center">
-                    <div class="flex flex-col">
-                        <p class="font-semibold">{{ item.jobTitle ?? '(Not Specified)' }} {{ item.employer ? `at ${item.employer}` :'' }}</p>
-                        <span>{{ item.startDate }} - {{ item.endDate ?? 'Present' }}</span>
+                <template #header>
+                    <div class="flex flex-row gap-3 justify-between items-center">
+                        <div class="flex flex-col">
+                            <p class="font-semibold">{{ item.jobTitle ?? '(Not Specified)' }} {{ item.employer ? `at ${item.employer}` :'' }}</p>
+                            <span>{{ item.startDate }} - {{ item.endDate ?? 'Present' }}</span>
+                        </div>
+                        <UButton @click="onDeleteEmployementHistory(index)"
+                            color="red" variant="ghost"
+                            icon="i-heroicons-trash"/>
                     </div>
-                    <UButton @click="onDeleteEmployementHistory(index)"
-                        color="red" variant="ghost"
-                        icon="i-heroicons-trash"/>
-                </div>
-                <hr class="my-5"/>
+                </template>
                 <div class="grid grid-cols-2 gap-2 relative">
                     <UFormGroup label="Job Title" class="col-span-2">
                         <UInput type="text" v-model="item.jobTitle" placeholder="Job Title" size="sm" />

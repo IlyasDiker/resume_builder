@@ -9,6 +9,17 @@
       <form class="flex flex-col gap-4">
         <span class="text-3xl font-semibold">Resume</span>
         <UAccordion :items="accordionItems" color="gray" variant="ghost" multiple :defaultOpen="true">
+          <template #default="{ item, open }">
+            <UButton color="gray" variant="ghost" :ui="{ padding: { sm: 'py-3' } }" :icon="item.icon">
+              <span class="truncate">{{ item.label }}</span>
+              <template #trailing>
+                <UIcon name="i-heroicons-chevron-right-20-solid"
+                  class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                  :class="[open && 'rotate-90']"/>
+              </template>
+            </UButton>
+          </template>
+
           <template #personal_details>
             <div class="grid grid-cols-2 gap-4">
               <label>
@@ -28,9 +39,7 @@
             <FormResumeEducationHistory/>
           </template>
           <template #skills>
-            <div class="grid grid-cols-2 gap-4">
-
-            </div>
+            <FormResumeSkills/>
           </template>
           <template #languages>
             <div class="grid grid-cols-2 gap-4">
