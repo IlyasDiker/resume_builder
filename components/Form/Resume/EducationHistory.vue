@@ -1,39 +1,41 @@
 <template>
     <div class="flex flex-col gap-4">
+        <p>A varied education on your resume sums up the value that your learnings and background will bring to job.</p>
         <template v-for="(item, index) in resumeStore.currentResume.education">
             <UCard>
                 <div class="flex flex-row gap-3 justify-between items-center">
                     <div class="flex flex-col">
-                        <p class="font-semibold">{{ item.degree }} at {{ item.school }}</p>
+                        <p class="font-semibold">{{ item.degree ?? '(Not Specified)' }} {{ item.school ? `at ${item.school}` :'' }}</p>
                         <span>{{ item.startDate }} - {{ item.endDate ?? 'Present' }}</span>
                     </div>
                     <UButton @click="onDeleteEducationHistory(index)"
-                        icon="i-heroicons-trash"></UButton>
+                        color="red" variant="ghost"
+                        icon="i-heroicons-trash"/>
                 </div>
                 <hr class="my-5"/>
                 <div class="grid grid-cols-2 gap-2 relative">
                     <UFormGroup label="School" class="col-span-2">
-                        <UInput type="text" v-model="item.school" placeholder="School" size="xl" />
+                        <UInput type="text" v-model="item.school" placeholder="School" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Description" class="col-span-2">
-                        <UTextarea v-model="item.description" placeholder="Description" size="xl" />
+                        <UTextarea v-model="item.description" placeholder="Description" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Degree">
-                        <UInput type="text" v-model="item.degree" placeholder="Degree" size="xl" />
+                        <UInput type="text" v-model="item.degree" placeholder="Degree" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="City">
-                        <UInput type="text" v-model="item.city" placeholder="City" size="xl" />
+                        <UInput type="text" v-model="item.city" placeholder="City" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Start Date">
-                        <UInput type="month" v-model="item.startDate" placeholder="Start Date" size="xl" />
+                        <UInput type="month" v-model="item.startDate" placeholder="Start Date" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="End Date">
-                        <UInput type="month" v-model="item.endDate" placeholder="End Date" size="xl" />
+                        <UInput type="month" v-model="item.endDate" placeholder="End Date" size="sm" />
                     </UFormGroup>
                 </div>
             </UCard>
         </template>
-        <UButton color="white" @click="onAddEducationHistory()">Add Experience</UButton>
+        <UButton icon="i-heroicons-plus" variant="ghost" @click="onAddEducationHistory()">Add Experience</UButton>
     </div>
 </template>
 

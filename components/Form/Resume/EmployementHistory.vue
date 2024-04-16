@@ -1,39 +1,41 @@
 <template>
     <div class="flex flex-col gap-4">
+        <p>Show your relevant experience (last 10 years). Use bullet points to note your achievements, if possible - use numbers/facts (Achieved X, measured by Y, by doing Z).</p>
         <template v-for="(item, index) in resumeStore.currentResume.employement_history">
             <UCard>
                 <div class="flex flex-row gap-3 justify-between items-center">
                     <div class="flex flex-col">
-                        <p class="font-semibold">{{ item.jobTitle }} at {{ item.employer }}</p>
+                        <p class="font-semibold">{{ item.jobTitle ?? '(Not Specified)' }} {{ item.employer ? `at ${item.employer}` :'' }}</p>
                         <span>{{ item.startDate }} - {{ item.endDate ?? 'Present' }}</span>
                     </div>
                     <UButton @click="onDeleteEmployementHistory(index)"
-                        icon="i-heroicons-trash"></UButton>
+                        color="red" variant="ghost"
+                        icon="i-heroicons-trash"/>
                 </div>
                 <hr class="my-5"/>
                 <div class="grid grid-cols-2 gap-2 relative">
                     <UFormGroup label="Job Title" class="col-span-2">
-                        <UInput type="text" v-model="item.jobTitle" placeholder="Job Title" size="xl" />
+                        <UInput type="text" v-model="item.jobTitle" placeholder="Job Title" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Description" class="col-span-2">
-                        <UTextarea v-model="item.description" placeholder="Description" size="xl" />
+                        <UTextarea v-model="item.description" placeholder="Description" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Employer">
-                        <UInput type="text" v-model="item.employer" placeholder="Employer" size="xl" />
+                        <UInput type="text" v-model="item.employer" placeholder="Employer" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="City">
-                        <UInput type="text" v-model="item.city" placeholder="City" size="xl" />
+                        <UInput type="text" v-model="item.city" placeholder="City" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Start Date">
-                        <UInput type="month" v-model="item.startDate" placeholder="Start Date" size="xl" />
+                        <UInput type="month" v-model="item.startDate" placeholder="Start Date" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="End Date">
-                        <UInput type="month" v-model="item.endDate" placeholder="End Date" size="xl" />
+                        <UInput type="month" v-model="item.endDate" placeholder="End Date" size="sm" />
                     </UFormGroup>
                 </div>
             </UCard>
         </template>
-        <UButton color="white" @click="onAddEmployementHistory()">Add Experience</UButton>
+        <UButton icon="i-heroicons-plus" variant="ghost" @click="onAddEmployementHistory()">Add Experience</UButton>
     </div>
 </template>
 
