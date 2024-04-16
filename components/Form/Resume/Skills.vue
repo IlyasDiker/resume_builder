@@ -7,7 +7,7 @@
                     <div class="flex flex-row gap-3 justify-between items-center">
                         <div class="flex flex-col">
                             <p class="font-semibold">{{ item.name ?? '(Not Specified)' }}</p>
-                            <span>{{ formatLevelLabel(item.level) }}</span>
+                            <span>{{ formatSkillLevelLabel(item.level) }}</span>
                         </div>
                         <UButton @click="onDeleteSkills(index)"
                             color="red" variant="ghost"
@@ -40,9 +40,5 @@ function onAddSkills() {
     name: null,
     level: 0
   })
-}
-
-function formatLevelLabel(level: number) {
-  return level === 0 ? 'Novice': level === 1 ? 'Beginner' : level === 2 ? 'Skillfull' : level === 3 ? 'Experienced' : 'Expert'
 }
 </script>

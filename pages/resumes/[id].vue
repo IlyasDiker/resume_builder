@@ -42,9 +42,7 @@
             <FormResumeSkills/>
           </template>
           <template #languages>
-            <div class="grid grid-cols-2 gap-4">
-
-            </div>
+            <FormResumeLanguages/>
           </template>
         </UAccordion>
       </form>
