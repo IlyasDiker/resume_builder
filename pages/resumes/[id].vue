@@ -6,7 +6,7 @@
     <main class="flex flex-col px-6 py-12 min-w-[400px] w-1/3">
       <form class="flex flex-col gap-4">
         <span class="text-3xl font-semibold">Resume</span>
-        <UAccordion :items="accordionItems" color="white" variant="solid">
+        <UAccordion :items="accordionItems" color="gray" variant="ghost" multiple :defaultOpen="true">
           <template #personal_details>
             <div class="grid grid-cols-2 gap-4">
               <label>
@@ -20,14 +20,10 @@
             </div>
           </template>
           <template #experience>
-            <div class="grid grid-cols-2 gap-4">
-
-            </div>
+            <FormResumeEmployementHistory/>
           </template>
           <template #education>
-            <div class="grid grid-cols-2 gap-4">
-
-            </div>
+            <FormResumeEducationHistory/>
           </template>
           <template #skills>
             <div class="grid grid-cols-2 gap-4">
@@ -60,7 +56,6 @@ const accordionItems = [
   { slot: "certificats", label: "Certificats", icon: "i-heroicons-clipboard-document-check" },
   { slot: "summary", label: "Summary", icon: "i-heroicons-document-text" },
 ]
-
 
 </script>
 
