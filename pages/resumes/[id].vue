@@ -1,8 +1,10 @@
 <template>
-  <div class="flex flex-row h-screen">
-    <PreviewWrapper class="flex-grow">
-      <div class="bg-white max-w-[800px] aspect-paper w-full flex-shrink-0 mx-auto shadow-xl"></div>
-    </PreviewWrapper>
+  <div class="flex flex-row min-h-screen">
+    <div class="flex flex-col flex-grow h-full relative sticky top-0 bottom-0">
+      <PreviewWrapper class="w-full h-screen">
+        <div class="bg-white max-w-[800px] aspect-paper w-full flex-shrink-0 mx-auto shadow-xl"></div>
+      </PreviewWrapper>
+    </div>
     <main class="flex flex-col px-6 py-12 min-w-[400px] w-1/3">
       <form class="flex flex-col gap-4">
         <span class="text-3xl font-semibold">Resume</span>
