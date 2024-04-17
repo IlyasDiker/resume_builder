@@ -21,16 +21,7 @@
           </template>
 
           <template #personal_details>
-            <div class="grid grid-cols-2 gap-4">
-              <label>
-                <span>First Name</span>
-                <UInput type="text" v-model="resumeStore.currentResume.personal_details.first_name"/>
-              </label>
-              <label>
-                <span>Last Name</span>
-                <UInput type="text" v-model="resumeStore.currentResume.personal_details.last_name"/>
-              </label>
-            </div>
+            <FormResumePersonalDetails/>
           </template>
           <template #experience>
             <FormResumeEmployementHistory/>
@@ -43,6 +34,9 @@
           </template>
           <template #languages>
             <FormResumeLanguages/>
+          </template>
+          <template #summary>
+            <LazyFormResumeSummary/>
           </template>
         </UAccordion>
       </form>

@@ -19,7 +19,7 @@
                         <UInput type="text" v-model="item.name" placeholder="Name" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Level">
-                        <URange v-model="item.level" size="sm" :step="1" :min="0" :max="4" class="py-4" />
+                        <URange v-model.number="item.level" size="sm" :step="1" :min="0" :max="4" class="py-4" />
                     </UFormGroup>
                 </div>
             </UCard>

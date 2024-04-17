@@ -18,7 +18,7 @@
                         <UInput type="text" v-model="item.name" placeholder="Name" size="sm" />
                     </UFormGroup>
                     <UFormGroup label="Level">
-                        <USelect v-model="item.level" size="sm" :options="languagesProficieny" 
+                        <USelect v-model.number="item.level" size="sm" :options="languagesProficieny" 
                             optionAttribute="label" valueAttribute="value"/>
                     </UFormGroup>
                 </div>
