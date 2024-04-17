@@ -19,7 +19,6 @@
               </template>
             </UButton>
           </template>
-
           <template #personal_details>
             <FormResumePersonalDetails/>
           </template>
@@ -34,6 +33,9 @@
           </template>
           <template #languages>
             <FormResumeLanguages/>
+          </template>
+          <template #courses>
+            <LazyFormResumeCourses/>
           </template>
           <template #summary>
             <LazyFormResumeSummary/>
@@ -56,7 +58,7 @@ const accordionItems = [
   { slot: "education", label: "Education", icon: "i-heroicons-academic-cap" },
   { slot: "skills", label: "Skills", icon: "i-heroicons-bolt" },
   { slot: "languages", label: "Languages", icon: "i-heroicons-language" },
-  { slot: "certificats", label: "Certificats", icon: "i-heroicons-clipboard-document-check" },
+  { slot: "courses", label: "Certificats", icon: "i-heroicons-clipboard-document-check" },
   { slot: "summary", label: "Summary", icon: "i-heroicons-document-text" },
 ]
 
